@@ -4,7 +4,7 @@
 
 当前组合：固件V1.8 + 上位机V0.2。已完成本轮实物功能验收。项目按环境相对明暗映射补光，不是恒照度PID闭环。
 
-维护账号：[00carmen](https://github.com/00carmen)。
+维护账号：[00carmen](https://github.com/00carmen)。首次公开上传完成，[首轮自动测试](https://github.com/00carmen/stm32-light-controller/actions/runs/43236610960)的C和Python两项作业均通过；详见[上传结果](docs/上传结果.md)。
 
 [版本记录](CHANGELOG.md) · [上传前剩余事项](docs/上传前剩余事项.md) · [首次Release草稿](docs/Release说明草稿.md)
 
@@ -66,7 +66,7 @@ MODE AUTO
 
 主机固件测试：安装GCC后，在仓库根目录用PowerShell执行`powershell -ExecutionPolicy Bypass -File tools/run_host_tests.ps1`。只对该脚本调用临时指定策略，不修改系统策略。输出为56项协议、20项配置、233项存储检查。
 
-跨平台入口为`python tools/run_host_tests.py`，默认使用gcc，也可通过`--compiler`指定编译器路径。`.github/workflows/tests.yml`已配置C逻辑和Python含Tk界面的自动测试；上传后才能确认首次云端运行结果。工作流不依赖开发板，不替代Keil目标构建和实物验收。
+跨平台入口为`python tools/run_host_tests.py`，默认使用gcc，也可通过`--compiler`指定编译器路径。`.github/workflows/tests.yml`已配置C逻辑和Python含Tk界面的自动测试；首轮云端作业已验证通过，记录链接见上文。工作流不依赖开发板，不替代Keil目标构建和实物验收。
 
 Python测试：在software/pc_app目录执行`.venv\Scripts\python.exe -m unittest -v`，需要可用的Tk显示环境；当前27项通过。测试不自动操作硬件。
 
