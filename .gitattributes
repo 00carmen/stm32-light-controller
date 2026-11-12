@@ -1,0 +1,11 @@
+* text=auto
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.py text eol=lf
+*.c text eol=crlf
+*.h text eol=crlf
+*.s text eol=crlf
+*.md text eol=lf
+*.csv text eol=crlf
+*.docx binary
+*.png binary

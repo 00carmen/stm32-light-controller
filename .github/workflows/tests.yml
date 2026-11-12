@@ -1,0 +1,43 @@
+name: Host software tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  c-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Run portable C logic tests
+        run: python tools/run_host_tests.py
+
+  python-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Install virtual display and Tk libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb xauth python3-tk
+      - name: Install serial dependency
+        run: python -m pip install -r software/pc_app/requirements.txt
+      - name: Run Python tests with a virtual display
+        working-directory: software/pc_app
+        run: xvfb-run -a python -m unittest -v

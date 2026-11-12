@@ -1,0 +1,31 @@
+# Keil build and personal debug state
+**/Objects/
+**/Listings/
+**/DebugConfig/
+**/RTE/_Target_*/
+*.uvoptx
+*.uvguix.*
+*.bak
+*.dep
+*.o
+*.axf
+*.hex
+*.map
+*.lnp
+*.sct
+*.build_log.htm
+# Python environments and runtime data
+**/.venv/
+**/__pycache__/
+*.py[cod]
+**/records/
+app_error.log
+*.log
+.host-build/
+# Local credentials and OS files
+.env
+.env.*
+*.pem
+*.key
+Thumbs.db
+.DS_Store
